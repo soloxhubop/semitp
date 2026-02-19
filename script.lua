@@ -1,18 +1,33 @@
 local Lighting = game:GetService("Lighting")
-local Workspace = game:GetService("Workspace")
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
 Lighting.GlobalShadows = false
-Lighting.FogEnd = 9e9
-Lighting.Brightness = 1
-Lighting.OutdoorAmbient = Color3.fromRGB(180, 180, 180)
-
-for _, particle in pairs(Workspace:GetDescendants()) do
-    if particle:IsA("ParticleEmitter") or particle:IsA("Trail") then
-        particle.Enabled = false
+Lighting.FogEnd = 100000
+Lighting.Brightness = 0.5
+Lighting.ClockTime = 18
+Lighting.OutdoorAmbient = Color3.fromRGB(80, 80, 90)
+Lighting.Ambient = Color3.fromRGB(70, 70, 80)
+Lighting.ExposureCompensation = 0
+Lighting.ColorShift_Top = Color3.fromRGB(100, 90, 120)
+Lighting.ColorShift_Bottom = Color3.fromRGB(60, 50, 80)
+Lighting.Changed:Connect(function()
+    Lighting.GlobalShadows = false
+    Lighting.FogEnd = 100000
+    Lighting.Brightness = 0.5
+    Lighting.ClockTime = 18
+    Lighting.OutdoorAmbient = Color3.fromRGB(80, 80, 90)
+    Lighting.Ambient = Color3.fromRGB(70, 70, 80)
+    Lighting.ExposureCompensation = 0
+    Lighting.ColorShift_Top = Color3.fromRGB(100, 90, 120)
+    Lighting.ColorShift_Bottom = Color3.fromRGB(60, 50, 80)
+end)
+for _, obj in ipairs(workspace:GetDescendants()) do
+    if obj:IsA("BasePart") then
+        obj.CastShadow = false
+        obj.Material = Enum.Material.SmoothPlastic
+        obj.Reflectance = 0
+        obj.Transparency = obj.Transparency * 0.95
     end
 end
+
 
 for _, obj in pairs(Workspace:GetDescendants()) do
     if obj:IsA("MeshPart") then
@@ -35,12 +50,12 @@ end
 
 RunService.Heartbeat:Connect(function()
     for _, char in pairs(Workspace:GetChildren()) do
-        if char:IsA("Model") and char:FindFirstChild("Humanoid") then
+)        if char:IsA("Model") and char:FindFirstChild("Humanoid") then
             local hum = char.Humanoid
             hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
         end
     end
-end)
+end
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
