@@ -1,3 +1,58 @@
+local RunService = game:GetService("RunService")
+local Lighting = game:GetService("Lighting")
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+Lighting.GlobalShadows = false
+Lighting.FogEnd = 100000
+Lighting.Brightness = 0.7
+Lighting.ClockTime = 12
+Lighting.OutdoorAmbient = Color3.fromRGB(200, 200, 200)
+Lighting.ExposureCompensation = 0
+
+Workspace.DescendantAdded:Connect(function(desc)
+    if desc:IsA("ParticleEmitter") or desc:IsA("Trail") then
+        desc.Enabled = false
+    elseif desc:IsA("Explosion") then
+        desc.BlastPressure = 0
+        desc.BlastRadius = 0
+    elseif desc:IsA("Fire") or desc:IsA("Smoke") then
+        desc.Enabled = false
+    elseif desc:IsA("Sparkles") then
+        desc.Enabled = false
+    end
+end)
+
+for _, v in pairs(Workspace:GetDescendants()) do
+    if v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Enabled = false
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 0
+        v.BlastRadius = 0
+    elseif v:IsA("Fire") or v:IsA("Smoke") then
+        v.Enabled = false
+    elseif v:IsA("Sparkles") then
+        v.Enabled = false
+    end
+end
+
+for _, v in pairs(Workspace:GetDescendants()) do
+    if v:IsA("BasePart") then
+        v.Material = Enum.Material.Plastic
+        v.Reflectance = 0
+        v.CastShadow = false
+    end
+end
+
+RunService.Heartbeat:Connect(function()
+    for _, v in pairs(Workspace:GetDescendants()) do
+        if v:IsA("BasePart") then
+            v.CastShadow = false
+        end
+    end
+end)
+
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -54,7 +109,7 @@ createESPBox(autoSemiTpCFrame.Position, "Auto tp Right")
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Name = "MainFrame"
-mainFrame.Size = UDim2.new(0, 160, 0, 275)
+mainFrame.Size = UDim2.new(0, 160, 0, 280)
 mainFrame.Position = UDim2.new(1, -197, 0.5, -156)
 mainFrame.AnchorPoint = Vector2.new(0, 0.5)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
