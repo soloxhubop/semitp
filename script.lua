@@ -572,25 +572,6 @@ end)
 
 initializeScanner()
 
-local dropdownContainer = Instance.new("Frame")
-dropdownContainer.Name = "DropdownContainer"
-dropdownContainer.Size = UDim2.new(0.9, 0, 0, 23)
-dropdownContainer.Position = UDim2.new(0.05, 0, 0, 221)
-dropdownContainer.BackgroundTransparency = 1
-dropdownContainer.ClipsDescendants = true
-dropdownContainer.Parent = mainFrame
-
-local dropdownButton = Instance.new("TextButton")
-dropdownButton.Size = UDim2.new(1, 0, 0, 23)
-dropdownButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-dropdownButton.Text = "TP TO SPOT â–¼"
-dropdownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-dropdownButton.TextSize = 9
-dropdownButton.Font = Enum.Font.GothamBold
-dropdownButton.Parent = dropdownContainer
-local dropCorner = Instance.new("UICorner", dropdownButton)
-dropCorner.CornerRadius = UDim.new(0, 4)
-
 local dropStroke = Instance.new("UIStroke", dropdownButton)
 dropStroke.Color = Color3.fromRGB(255, 50, 50)
 dropStroke.Thickness = 1
