@@ -342,32 +342,27 @@ if not success then
 end
 
 local exitButton = Instance.new("TextButton")
-exitButton.Name = "InstantExitBtn"
-exitButton.Size = UDim2.new(0, 180, 0, 50) 
-exitButton.Position = UDim2.new(1, -200, 0.5, -25) 
-exitButton.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
-exitButton.Text = "EXIT GAME"
-exitButton.TextColor3 = Color3.new(1, 1, 1)
+exitButton.Name = "AutoExitButton"
+exitButton.Size = UDim2.new(0.9, 0, 0, 23)
+exitButton.Position = UDim2.new(0.05, 0, 1, -40)
+exitButton.Text = "Auto Exit Instant"
 exitButton.Font = Enum.Font.GothamBold
-exitButton.TextSize = 18
-exitButton.Parent = screenGui
-local uiCorner = Instance.new("UICorner")
-uiCorner.CornerRadius = UDim.new(0, 12)
-uiCorner.Parent = exitButton
-exitButton.MouseButton1Click:Connect(function()
-    game:Shutdown()
-end)
-exitButton.MouseEnter:Connect(function()
-    TweenService:Create(exitButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(255, 0, 0)}):Play()
-end)
-exitButton.MouseLeave:Connect(function()
-    TweenService:Create(exitButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(180, 0, 0)}):Play()
-end)
+exitButton.TextSize = 9
+exitButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+exitButton.TextColor3 = Color3.fromRGB(200, 0, 200)
+exitButton.Parent = mainFrame
 
-local Lighting = game:GetService("Lighting")
-local Workspace = game:GetService("Workspace")
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
+local btnCorner = Instance.new("UICorner", exitButton)
+btnCorner.CornerRadius = UDim.new(0, 4)
+
+exitButton.MouseButton1Click:Connect(function()
+    local LocalPlayer = game:GetService("Players").LocalPlayer
+    if LocalPlayer then
+        LocalPlayer:Kick("Auto Exit Triggered")
+    else
+        game:Shutdown()
+    end
+end)
 
 local discordText = Instance.new("TextLabel")
 discordText.Size = UDim2.new(1, 0, 0, 12)
