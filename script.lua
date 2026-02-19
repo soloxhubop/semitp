@@ -3,7 +3,6 @@ local TweenService = game:GetService("TweenService")
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "ILLUSION EXIT"
 screenGui.ResetOnSpawn = false
--- TEST SE AUTO PLAYER GUI NON FUNZIONA
 success, err = pcall(function()
     screenGui.Parent = CoreGui
 end)
@@ -12,7 +11,6 @@ if not success then
 end
 local exitButton = Instance.new("TextButton")
 exitButton.Name = "InstantExitBtn"
--- Dimensioni: 180px larghezza, 50px altezza
 exitButton.Size = UDim2.new(0, 180, 0, 50) 
 exitButton.Position = UDim2.new(1, -200, 0.5, -25) 
 exitButton.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
