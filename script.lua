@@ -1,42 +1,3 @@
-Lighting.GlobalShadows = false
-Lighting.FogEnd = 9e9
-Lighting.Brightness = 1
-Lighting.OutdoorAmbient = Color3.fromRGB(180, 180, 180)
-
-for _, particle in pairs(Workspace:GetDescendants()) do
-    if particle:IsA("ParticleEmitter") or particle:IsA("Trail") then
-        particle.Enabled = false
-    end
-end
-
-for _, obj in pairs(Workspace:GetDescendants()) do
-    if obj:IsA("MeshPart") then
-        obj.Material = Enum.Material.Plastic
-        obj.Reflectance = 0
-        obj.CastShadow = false
-    elseif obj:IsA("Part") then
-        obj.CastShadow = false
-        obj.Material = Enum.Material.Plastic
-    elseif obj:IsA("Decal") or obj:IsA("Texture") then
-        obj.Transparency = 1
-    end
-end
-
-for _, gui in pairs(Players.LocalPlayer.PlayerGui:GetDescendants()) do
-    if gui:IsA("UIGradient") or gui:IsA("UIStroke") or gui:IsA("ImageLabel") then
-        gui:Destroy()
-    end
-end
-
-RunService.Heartbeat:Connect(function()
-    for _, char in pairs(Workspace:GetChildren()) do
-        if char:IsA("Model") and char:FindFirstChild("Humanoid") then
-            local hum = char.Humanoid
-            hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-        end
-    end
-end)
-
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -93,7 +54,7 @@ createESPBox(autoSemiTpCFrame.Position, "Auto tp Right")
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Name = "MainFrame"
-mainFrame.Size = UDim2.new(0, 160, 0, 280)
+mainFrame.Size = UDim2.new(0, 182, 0, 312)
 mainFrame.Position = UDim2.new(1, -197, 0.5, -156)
 mainFrame.AnchorPoint = Vector2.new(0, 0.5)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
@@ -148,12 +109,12 @@ titleContainer.Parent = mainFrame
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 1, 0)
 title.BackgroundTransparency = 1
-title.Text = "Meloska's semi TP"
+title.Text = "Meloska semi TP"
 title.TextColor3 = Color3.fromRGB(138, 43, 226)
 title.TextSize = 13
 title.Font = Enum.Font.GothamBlack
 title.TextStrokeTransparency = 0.3
-title.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+title.TextStrokeColor3 = Color3.fromRGB(255, 50, 50)
 title.Parent = titleContainer
 
 local underline = Instance.new("Frame")
@@ -165,9 +126,9 @@ underline.Parent = mainFrame
 
 local underlineGradient = Instance.new("UIGradient")
 underlineGradient.Color = ColorSequence.new({
-ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 215, 0)),
-ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 255, 255)),
-ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 215, 0))
+ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 50, 50)),
+ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 200, 0)),
+ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 50, 50))
 })
 underlineGradient.Parent = underline
 
@@ -270,7 +231,7 @@ container.Position = position
 container.BackgroundTransparency = 1
 container.Parent = mainFrame
 
-local label = Instance.new("TextLabel") label.Size = UDim2.new(1, -40, 1, 0) label.BackgroundTransparency = 1 label.Text = text label.TextColor3 = Color3.fromRGB(138, 43, 226) label.TextSize = 8 label.Font = Enum.Font.GothamMedium label.TextXAlignment = Enum.TextXAlignment.Left label.Parent = container local btn = Instance.new("TextButton") btn.Size = UDim2.new(0, 35, 0, 18) btn.Position = UDim2.new(1, -35, 0.5, -9) btn.BackgroundColor3 = Color3.fromRGB(30, 30, 30) btn.Text = "" btn.Parent = container local btnCorner = Instance.new("UICorner", btn) btnCorner.CornerRadius = UDim.new(1, 0) local dot = Instance.new("Frame") dot.Size = UDim2.new(0, 14, 0, 14) dot.Position = UDim2.new(0, 2, 0.5, -7) dot.BackgroundColor3 = Color3.fromRGB(138, 38, 226) dot.Parent = btn local dotCorner = Instance.new("UICorner", dot) dotCorner.CornerRadius = UDim.new(1, 0) local active = false btn.MouseButton1Click:Connect(function() active = not active local goal = active and UDim2.new(1, -16, 0.5, -7) or UDim2.new(0, 2, 0.5, -7) local col = active and Color3.fromRGB(138, 43, 226) or Color3.fromRGB(30, 30, 30) TweenService:Create(dot, TweenInfo.new(0.15), {Position = goal}):Play() TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = col}):Play() callback(active) end) 
+local label = Instance.new("TextLabel") label.Size = UDim2.new(1, -40, 1, 0) label.BackgroundTransparency = 1 label.Text = text label.TextColor3 = Color3.fromRGB(138, 43, 226) label.TextSize = 8 label.Font = Enum.Font.GothamMedium label.TextXAlignment = Enum.TextXAlignment.Left label.Parent = container local btn = Instance.new("TextButton") btn.Size = UDim2.new(0, 35, 0, 18) btn.Position = UDim2.new(1, -35, 0.5, -9) btn.BackgroundColor3 = Color3.fromRGB(30, 30, 30) btn.Text = "" btn.Parent = container local btnCorner = Instance.new("UICorner", btn) btnCorner.CornerRadius = UDim.new(1, 0) local dot = Instance.new("Frame") dot.Size = UDim2.new(0, 14, 0, 14) dot.Position = UDim2.new(0, 2, 0.5, -7) dot.BackgroundColor3 = Color3.fromRGB(138, 43, 226) dot.Parent = btn local dotCorner = Instance.new("UICorner", dot) dotCorner.CornerRadius = UDim.new(1, 0) local active = false btn.MouseButton1Click:Connect(function() active = not active local goal = active and UDim2.new(1, -16, 0.5, -7) or UDim2.new(0, 2, 0.5, -7) local col = active and Color3.fromRGB(138, 43, 226) or Color3.fromRGB(30, 30, 30) TweenService:Create(dot, TweenInfo.new(0.15), {Position = goal}):Play() TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = col}):Play() callback(active) end) 
 
 end
 
@@ -329,17 +290,6 @@ spamButton.Text = "SPAMMING " .. target.Name:upper() spamButton.BackgroundColor3
 end
 
 spamButton.MouseButton1Click:Connect(spamAPNearest)
-local CoreGui = game:GetService("CoreGui")
-local TweenService = game:GetService("TweenService")
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "ILLUSION EXIT"
-screenGui.ResetOnSpawn = false
-success, err = pcall(function()
-    screenGui.Parent = CoreGui
-end)
-if not success then
-    screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-end
 
 local discordText = Instance.new("TextLabel")
 discordText.Size = UDim2.new(1, 0, 0, 12)
@@ -621,41 +571,3 @@ end
 end)
 
 initializeScanner()
-
-local dropStroke = Instance.new("UIStroke", dropdownButton)
-dropStroke.Color = Color3.fromRGB(255, 50, 50)
-dropStroke.Thickness = 1
-
-local dropdownList = Instance.new("Frame")
-dropdownList.Size = UDim2.new(1, 0, 0, 52)
-dropdownList.Position = UDim2.new(0, 0, 0, 25)
-dropdownList.BackgroundTransparency = 1
-dropdownList.Parent = dropdownContainer
-
-local function createListButton(text, pos, callback)
-local btn = Instance.new("TextButton")
-btn.Size = UDim2.new(1, 0, 0, 23)
-btn.Position = pos
-btn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-btn.Text = text
-btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-btn.TextSize = 8
-btn.Font = Enum.Font.GothamMedium
-btn.Parent = dropdownList
-local listCorner = Instance.new("UICorner", btn)
-listCorner.CornerRadius = UDim.new(0, 4)
-
-local listStroke = Instance.new("UIStroke", btn) listStroke.Color = Color3.fromRGB(255, 200, 0) listStroke.Thickness = 1 btn.MouseButton1Click:Connect(function() local char = player.Character local hum = char and char:FindFirstChildOfClass("Humanoid") local backpack = player:FindFirstChild("Backpack") if hum and backpack then local carpet = backpack:FindFirstChild("Flying Carpet") if carpet then hum:EquipTool(carpet) task.wait(0.1) end end callback() end) 
-
-end
-
-createListButton("TP TO SPOT 1", UDim2.new(0, 0, 0, 0), function() executeTP(spot1_sequence) end)
-createListButton("TP TO SPOT 2", UDim2.new(0, 0, 0, 26), function() executeTP(spot2_sequence) end)
-
-local dropdownOpen = false
-dropdownButton.MouseButton1Click:Connect(function()
-dropdownOpen = not dropdownOpen
-local targetSize = dropdownOpen and UDim2.new(0.9, 0, 0, 81) or UDim2.new(0.9, 0, 0, 23)
-dropdownButton.Text = dropdownOpen and "TP TO SPOT â–²" or "TP TO SPOT â–¼"
-TweenService:Create(dropdownContainer, TweenInfo.new(0.2), {Size = targetSize}):Play()
-end)
