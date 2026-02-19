@@ -57,7 +57,7 @@ mainFrame.Name = "MainFrame"
 mainFrame.Size = UDim2.new(0, 182, 0, 312)
 mainFrame.Position = UDim2.new(1, -197, 0.5, -156)
 mainFrame.AnchorPoint = Vector2.new(0, 0.5)
-mainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 mainFrame.BackgroundTransparency = 0.1
 mainFrame.BorderSizePixel = 0
 mainFrame.Active = true
@@ -87,7 +87,7 @@ borderGradient.Parent = borderFrame
 
 local borderStroke = Instance.new("UIStroke")
 borderStroke.Thickness = 2
-borderStroke.Color = Color3.fromRGB(255, 50, 50)
+borderStroke.Color = Color3.fromRGB(138, 43, 226)
 borderStroke.Transparency = 0.3
 borderStroke.Parent = mainFrame
 
@@ -109,8 +109,8 @@ titleContainer.Parent = mainFrame
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 1, 0)
 title.BackgroundTransparency = 1
-title.Text = "Tazy's semi TP"
-title.TextColor3 = Color3.fromRGB(212, 175, 55)
+title.Text = "Meloska's semi TP"
+title.TextColor3 = Color3.fromRGB(138, 43, 226)
 title.TextSize = 13
 title.Font = Enum.Font.GothamBlack
 title.TextStrokeTransparency = 0.3
@@ -136,10 +136,10 @@ local subtitle = Instance.new("TextLabel")
 subtitle.Size = UDim2.new(1, 0, 0, 12)
 subtitle.Position = UDim2.new(0, 0, 0, 29)
 subtitle.BackgroundTransparency = 1
-subtitle.Text = "MADE BY TAZY🔥"
-subtitle.TextColor3 = Color3.fromRGB(255, 200, 0)
+subtitle.Text = "MADE BY MELOSKA🌌"
+subtitle.TextColor3 = Color3.fromRGB(138, 43, 226)
 subtitle.TextSize = 8
-subtitle.Font = Enum.Font.GothamMedium
+subtitle.Font = Enum.Font.GothamBlack
 subtitle.TextStrokeTransparency = 0.5
 subtitle.Parent = mainFrame
 
@@ -231,7 +231,7 @@ container.Position = position
 container.BackgroundTransparency = 1
 container.Parent = mainFrame
 
-local label = Instance.new("TextLabel") label.Size = UDim2.new(1, -40, 1, 0) label.BackgroundTransparency = 1 label.Text = text label.TextColor3 = Color3.fromRGB(212, 175, 55) label.TextSize = 8 label.Font = Enum.Font.GothamMedium label.TextXAlignment = Enum.TextXAlignment.Left label.Parent = container local btn = Instance.new("TextButton") btn.Size = UDim2.new(0, 35, 0, 18) btn.Position = UDim2.new(1, -35, 0.5, -9) btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40) btn.Text = "" btn.Parent = container local btnCorner = Instance.new("UICorner", btn) btnCorner.CornerRadius = UDim.new(1, 0) local dot = Instance.new("Frame") dot.Size = UDim2.new(0, 14, 0, 14) dot.Position = UDim2.new(0, 2, 0.5, -7) dot.BackgroundColor3 = Color3.fromRGB(212, 175, 55) dot.Parent = btn local dotCorner = Instance.new("UICorner", dot) dotCorner.CornerRadius = UDim.new(1, 0) local active = false btn.MouseButton1Click:Connect(function() active = not active local goal = active and UDim2.new(1, -16, 0.5, -7) or UDim2.new(0, 2, 0.5, -7) local col = active and Color3.fromRGB(212, 175, 55) or Color3.fromRGB(255, 255, 255) TweenService:Create(dot, TweenInfo.new(0.15), {Position = goal}):Play() TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = col}):Play() callback(active) end) 
+local label = Instance.new("TextLabel") label.Size = UDim2.new(1, -40, 1, 0) label.BackgroundTransparency = 1 label.Text = text label.TextColor3 = Color3.fromRGB(138, 43, 226) label.TextSize = 8 label.Font = Enum.Font.GothamMedium label.TextXAlignment = Enum.TextXAlignment.Left label.Parent = container local btn = Instance.new("TextButton") btn.Size = UDim2.new(0, 35, 0, 18) btn.Position = UDim2.new(1, -35, 0.5, -9) btn.BackgroundColor3 = Color3.fromRGB(30, 30, 30) btn.Text = "" btn.Parent = container local btnCorner = Instance.new("UICorner", btn) btnCorner.CornerRadius = UDim.new(1, 0) local dot = Instance.new("Frame") dot.Size = UDim2.new(0, 14, 0, 14) dot.Position = UDim2.new(0, 2, 0.5, -7) dot.BackgroundColor3 = Color3.fromRGB(138, 38, 226) dot.Parent = btn local dotCorner = Instance.new("UICorner", dot) dotCorner.CornerRadius = UDim.new(1, 0) local active = false btn.MouseButton1Click:Connect(function() active = not active local goal = active and UDim2.new(1, -16, 0.5, -7) or UDim2.new(0, 2, 0.5, -7) local col = active and Color3.fromRGB(138, 43, 226) or Color3.fromRGB(30, 30, 30) TweenService:Create(dot, TweenInfo.new(0.15), {Position = goal}):Play() TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = col}):Play() callback(active) end) 
 
 end
 
@@ -257,7 +257,7 @@ spamButton.Position = UDim2.new(0.05, 0, 0, 123)
 spamButton.Text = "SPAM AP NEAREST"
 spamButton.Font = Enum.Font.GothamBold
 spamButton.TextSize = 9
-spamButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+spamButton.TextColor3 = Color3.fromRGB(138, 43, 226)
 spamButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 spamButton.Parent = mainFrame
 
@@ -296,7 +296,7 @@ discordText.Size = UDim2.new(1, 0, 0, 12)
 discordText.Position = UDim2.new(0, 0, 1, -15)
 discordText.BackgroundTransparency = 1
 discordText.Text = "discord.gg/BqjPZCVeW"
-discordText.TextColor3 = Color3.fromRGB(212, 175, 55)
+discordText.TextColor3 = Color3.fromRGB(138, 43, 226)
 discordText.TextSize = 7
 discordText.Font = Enum.Font.GothamBold
 discordText.TextStrokeTransparency = 0.5
