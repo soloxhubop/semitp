@@ -126,9 +126,9 @@ underline.Parent = mainFrame
 
 local underlineGradient = Instance.new("UIGradient")
 underlineGradient.Color = ColorSequence.new({
-ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 50, 50)),
-ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 200, 0)),
-ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 50, 50))
+ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 215, 0)),
+ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 255, 255)),
+ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 215, 0))
 })
 underlineGradient.Parent = underline
 
@@ -136,7 +136,7 @@ local subtitle = Instance.new("TextLabel")
 subtitle.Size = UDim2.new(1, 0, 0, 12)
 subtitle.Position = UDim2.new(0, 0, 0, 29)
 subtitle.BackgroundTransparency = 1
-subtitle.Text = "made by Tazy"
+subtitle.Text = "MADE BY TAZY🔥"
 subtitle.TextColor3 = Color3.fromRGB(255, 200, 0)
 subtitle.TextSize = 8
 subtitle.Font = Enum.Font.GothamMedium
@@ -295,8 +295,8 @@ local discordText = Instance.new("TextLabel")
 discordText.Size = UDim2.new(1, 0, 0, 12)
 discordText.Position = UDim2.new(0, 0, 1, -15)
 discordText.BackgroundTransparency = 1
-discordText.Text = "discord.gg/NGEMSasjjG"
-discordText.TextColor3 = Color3.fromRGB(255, 200, 0)
+discordText.Text = "discord.gg/BqjPZCVeW"
+discordText.TextColor3 = Color3.fromRGB(212, 175, 55)
 discordText.TextSize = 7
 discordText.Font = Enum.Font.GothamBold
 discordText.TextStrokeTransparency = 0.5
