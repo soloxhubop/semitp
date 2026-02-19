@@ -54,7 +54,7 @@ createESPBox(autoSemiTpCFrame.Position, "Auto tp Right")
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Name = "MainFrame"
-mainFrame.Size = UDim2.new(0, 182, 0, 312)
+mainFrame.Size = UDim2.new(0, 160, 0, 280)
 mainFrame.Position = UDim2.new(1, -197, 0.5, -156)
 mainFrame.AnchorPoint = Vector2.new(0, 0.5)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
