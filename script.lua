@@ -1,58 +1,32 @@
-local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
-local Workspace = game:GetService("Workspace")
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-
 Lighting.GlobalShadows = false
 Lighting.FogEnd = 100000
-Lighting.Brightness = 0.7
-Lighting.ClockTime = 12
-Lighting.OutdoorAmbient = Color3.fromRGB(200, 200, 200)
+Lighting.Brightness = 0.5
+Lighting.ClockTime = 18
+Lighting.OutdoorAmbient = Color3.fromRGB(80, 80, 90)
+Lighting.Ambient = Color3.fromRGB(70, 70, 80)
 Lighting.ExposureCompensation = 0
-
-Workspace.DescendantAdded:Connect(function(desc)
-    if desc:IsA("ParticleEmitter") or desc:IsA("Trail") then
-        desc.Enabled = false
-    elseif desc:IsA("Explosion") then
-        desc.BlastPressure = 0
-        desc.BlastRadius = 0
-    elseif desc:IsA("Fire") or desc:IsA("Smoke") then
-        desc.Enabled = false
-    elseif desc:IsA("Sparkles") then
-        desc.Enabled = false
-    end
+Lighting.ColorShift_Top = Color3.fromRGB(100, 90, 120)
+Lighting.ColorShift_Bottom = Color3.fromRGB(60, 50, 80)
+Lighting.Changed:Connect(function()
+    Lighting.GlobalShadows = false
+    Lighting.FogEnd = 100000
+    Lighting.Brightness = 0.5
+    Lighting.ClockTime = 18
+    Lighting.OutdoorAmbient = Color3.fromRGB(80, 80, 90)
+    Lighting.Ambient = Color3.fromRGB(70, 70, 80)
+    Lighting.ExposureCompensation = 0
+    Lighting.ColorShift_Top = Color3.fromRGB(100, 90, 120)
+    Lighting.ColorShift_Bottom = Color3.fromRGB(60, 50, 80)
 end)
-
-for _, v in pairs(Workspace:GetDescendants()) do
-    if v:IsA("ParticleEmitter") or v:IsA("Trail") then
-        v.Enabled = false
-    elseif v:IsA("Explosion") then
-        v.BlastPressure = 0
-        v.BlastRadius = 0
-    elseif v:IsA("Fire") or v:IsA("Smoke") then
-        v.Enabled = false
-    elseif v:IsA("Sparkles") then
-        v.Enabled = false
+for _, obj in ipairs(workspace:GetDescendants()) do
+    if obj:IsA("BasePart") then
+        obj.CastShadow = false
+        obj.Material = Enum.Material.SmoothPlastic
+        obj.Reflectance = 0
+        obj.Transparency = obj.Transparency * 0.95
     end
 end
-
-for _, v in pairs(Workspace:GetDescendants()) do
-    if v:IsA("BasePart") then
-        v.Material = Enum.Material.Plastic
-        v.Reflectance = 0
-        v.CastShadow = false
-    end
-end
-
-RunService.Heartbeat:Connect(function()
-    for _, v in pairs(Workspace:GetDescendants()) do
-        if v:IsA("BasePart") then
-            v.CastShadow = false
-        end
-    end
-end)
-
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
