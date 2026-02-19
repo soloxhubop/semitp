@@ -114,7 +114,7 @@ title.TextColor3 = Color3.fromRGB(212, 175, 55)
 title.TextSize = 13
 title.Font = Enum.Font.GothamBlack
 title.TextStrokeTransparency = 0.3
-title.TextStrokeColor3 = Color3.fromRGB(255, 50, 50)
+title.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 title.Parent = titleContainer
 
 local underline = Instance.new("Frame")
