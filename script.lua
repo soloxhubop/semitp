@@ -28,35 +28,6 @@ for _, obj in ipairs(workspace:GetDescendants()) do
     end
 end
 
-
-for _, obj in pairs(Workspace:GetDescendants()) do
-    if obj:IsA("MeshPart") then
-        obj.Material = Enum.Material.Plastic
-        obj.Reflectance = 0
-        obj.CastShadow = false
-    elseif obj:IsA("Part") then
-        obj.CastShadow = false
-        obj.Material = Enum.Material.Plastic
-    elseif obj:IsA("Decal") or obj:IsA("Texture") then
-        obj.Transparency = 1
-    end
-end
-
-for _, gui in pairs(Players.LocalPlayer.PlayerGui:GetDescendants()) do
-    if gui:IsA("UIGradient") or gui:IsA("UIStroke") or gui:IsA("ImageLabel") then
-        gui:Destroy()
-    end
-end
-
-RunService.Heartbeat:Connect(function()
-    for _, char in pairs(Workspace:GetChildren()) do
-)        if char:IsA("Model") and char:FindFirstChild("Humanoid") then
-            local hum = char.Humanoid
-            hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-        end
-    end
-end
-
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
