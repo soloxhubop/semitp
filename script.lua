@@ -1,3 +1,47 @@
+local Lighting = game:GetService("Lighting")
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+Lighting.GlobalShadows = false
+Lighting.FogEnd = 9e9
+Lighting.Brightness = 1
+Lighting.OutdoorAmbient = Color3.fromRGB(180, 180, 180)
+
+for _, particle in pairs(Workspace:GetDescendants()) do
+    if particle:IsA("ParticleEmitter") or particle:IsA("Trail") then
+        particle.Enabled = false
+    end
+end
+
+for _, obj in pairs(Workspace:GetDescendants()) do
+    if obj:IsA("MeshPart") then
+        obj.Material = Enum.Material.Plastic
+        obj.Reflectance = 0
+        obj.CastShadow = false
+    elseif obj:IsA("Part") then
+        obj.CastShadow = false
+        obj.Material = Enum.Material.Plastic
+    elseif obj:IsA("Decal") or obj:IsA("Texture") then
+        obj.Transparency = 1
+    end
+end
+
+for _, gui in pairs(Players.LocalPlayer.PlayerGui:GetDescendants()) do
+    if gui:IsA("UIGradient") or gui:IsA("UIStroke") or gui:IsA("ImageLabel") then
+        gui:Destroy()
+    end
+end
+
+RunService.Heartbeat:Connect(function()
+    for _, char in pairs(Workspace:GetChildren()) do
+        if char:IsA("Model") and char:FindFirstChild("Humanoid") then
+            local hum = char.Humanoid
+            hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+        end
+    end
+end)
+
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
